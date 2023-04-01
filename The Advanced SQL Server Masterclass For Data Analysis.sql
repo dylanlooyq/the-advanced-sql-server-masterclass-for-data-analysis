@@ -2,7 +2,6 @@
 ---- Lecture 6/73: Introducing Window Functions With OVER
 --YTD Sales Via Aggregate Query:
 SELECT
-
       [Total YTD Sales] = SUM(SalesYTD)
       ,[Max YTD Sales] = MAX(SalesYTD)
 FROM AdventureWorks2019.Sales.SalesPerson;
@@ -136,12 +135,12 @@ ORDER BY ProductID, OrderQty DESC;
 --------------------------------------------------------------------------------------------------------------------------------------------
 ---- Lecture 9/73: PARTITION BY - Exercises
 ---- Exercise 1: Create a query with the following columns:
----- ìNameî from the Production.Product table, which can be alised as ìProductNameî
----- ìListPriceî from the Production.Product table
----- ìNameî from the Production. ProductSubcategory table, which can be alised as ìProductSubcategoryî*
----- ìNameî from the Production.ProductCategory table, which can be alised as ìProductCategoryî**
----- *Join Production.ProductSubcategory to Production.Product on ìProductSubcategoryIDî
----- **Join Production.ProductCategory to ProductSubcategory on ìProductCategoryIDî
+---- ‚ÄúName‚Äù from the Production.Product table, which can be alised as ‚ÄúProductName‚Äù
+---- ‚ÄúListPrice‚Äù from the Production.Product table
+---- ‚ÄúName‚Äù from the Production. ProductSubcategory table, which can be alised as ‚ÄúProductSubcategory‚Äù*
+---- ‚ÄúName‚Äù from the Production.ProductCategory table, which can be alised as ‚ÄúProductCategory‚Äù**
+---- *Join Production.ProductSubcategory to Production.Product on ‚ÄúProductSubcategoryID‚Äù
+---- **Join Production.ProductCategory to ProductSubcategory on ‚ÄúProductCategoryID‚Äù
 ---- All the tables can be inner joined, and you do not need to apply any criteria.
 SELECT
 	B."Name" AS "ProductName"
@@ -194,7 +193,7 @@ FROM
 
 ---- Exercise 4:Enhance your query from Exercise 3 by adding a derived column called
 ---- "ProductVsCategoryDelta" that returns the result of the following calculation:
----- A product's list price, MINUS the average ListPrice for that productís category.
+---- A product's list price, MINUS the average ListPrice for that product‚Äôs category.
 SELECT
 	B."Name" AS "ProductName"
 	,ListPrice AS "ListPrice"
@@ -273,7 +272,7 @@ FROM
 
 ---- Exercise 3:
 ---- Enhance your query from Exercise 2 by adding a derived column called
----- "Category Price Rank" that ranks all products by ListPrice ñ within each category - in descending order.
+---- "Category Price Rank" that ranks all products by ListPrice ‚Äì within each category - in descending order.
 ---- In other words, every product within a given category should be ranked relative to other products in the same category.
 SELECT
 	B."Name" AS "ProductName"
@@ -292,8 +291,8 @@ FROM
 	ON A.ProductCategoryID = C.ProductCategoryID;
 
 ---- Exercise 4:Enhance your query from Exercise 3 by adding a derived column called
----- "Top 5 Price In Category" that returns the string ìYesî if a product has one of the top 5 list
----- prices in its product category, and ìNoî if it does not. You can try incorporating your logic from Exercise 3 into a CASE statement to make this work.
+---- "Top 5 Price In Category" that returns the string ‚ÄúYes‚Äù if a product has one of the top 5 list
+---- prices in its product category, and ‚ÄúNo‚Äù if it does not. You can try incorporating your logic from Exercise 3 into a CASE statement to make this work.
 SELECT
 	B."Name" AS "ProductName"
 	,ListPrice AS "ListPrice"
