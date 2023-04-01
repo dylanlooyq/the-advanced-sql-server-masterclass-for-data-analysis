@@ -15,7 +15,7 @@ SELECT BusinessEntityID
       ,Bonus
       ,CommissionPct
       ,SalesYTD
-	  ,SalesLastYear
+      ,SalesLastYear
       ,[Total YTD Sales] = SUM(SalesYTD) OVER()
       ,[Max YTD Sales] = MAX(SalesYTD) OVER()
       ,[% of Best Performer] = SalesYTD/MAX(SalesYTD) OVER()
